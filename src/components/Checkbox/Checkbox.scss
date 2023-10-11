@@ -1,0 +1,89 @@
+@import '../../scss/variables';
+
+.checkbox {
+  $checkmark-color: #424242;
+  $background-color-checked: #fff;
+  $background-color-unchecked: #fff;
+  $background-color-disabled: #ccc;
+  $border-color-checked: #c7c7c7;
+  $border-color-unchecked: #4B5D63;
+  $border-color-disabled: #c7c7c7;
+  $text-color-disabled: #ccc;
+  $primary-green: #078571;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  &--indeterminate {
+    .checkbox__input::before,
+    .checkbox__input:checked::before {
+      opacity: 1;
+      transform: rotate(0deg) scale(1) translate(0px, -0.4rem);
+      border-right: 0;
+    }
+  }
+
+  &__input {
+    position: relative;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: $background-color-unchecked;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.1rem solid $border-color-unchecked;
+    border-radius: 0.15rem;
+    transform: translateY(-0.075rem);
+    vertical-align: middle;
+    margin-right: 0.5rem;
+
+    &::before {
+      content: '';
+      opacity: 0;
+      transform: rotate(0deg) scale(0);
+      width: 0.45rem;
+      height: 0.95rem;
+      transition: 120ms opacity ease-in-out;
+      border-right: 3px solid $primary-green;
+      border-bottom: 3px solid $primary-green;
+      position: absolute;
+      left: 1px;
+      right: 0;
+      top: 1px;
+      bottom: 0;
+      margin: auto;
+    }
+
+    &:checked {
+      background-color: $background-color-checked;
+      border-color: $primary-green;
+
+      &::before {
+        opacity: 1;
+        top: -2px;
+        transform: rotate(45deg) scale(1);
+      }
+    }
+
+    &:disabled {
+      background-color: $background-color-disabled;
+      border-color: $border-color-disabled;
+      cursor: not-allowed;
+      & + .checkbox__label {
+        color: $text-color-disabled;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 1rem;
+    align-self: center;
+  }
+}

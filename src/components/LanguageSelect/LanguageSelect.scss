@@ -1,0 +1,60 @@
+@import '../../scss/variables';
+
+.language-select {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+
+  &__list {
+    margin: 0;
+    padding: 1rem 3rem 1rem 1rem;
+    list-style: none;
+    background-color: #fff;
+    box-shadow: $box-shadow-on-map;
+    display: none;
+    transform: translate(3.25rem, -0.25rem);
+    border: 1px solid #c7c7c7;
+    border-radius: 3px;
+
+    &--open {
+      display: flex;
+    }
+  }
+
+  &__toggle-btn {
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    font-size: 0.8rem;
+    line-height: 1;
+
+    svg {
+      width: 1.5rem;
+    }
+
+    &--close {
+      border-color: #fff;
+      box-shadow: none;
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+
+  &__item {
+    margin-right: 1rem;
+  }
+  .selectedLanguage{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+  }
+}

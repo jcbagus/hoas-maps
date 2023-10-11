@@ -1,0 +1,45 @@
+/*********************
+VARIABLES
+*********************/
+
+
+$color-text: #374B52;
+$color-primary: #5865F6;
+$color-primary-darker: #37419B;
+$color-primary-lighter: #929BFE;
+$color-secondary: #078571;
+
+$color-green: #078571;
+$color-green-darker: #056455;
+$color-blue: #5865F6;
+$color-grey: #F6F7F7;
+$color-grey-lighther: #F0F1F1;
+
+$box-shadow-on-map: 10px 24px 32px 0 rgba(0, 0, 0, .1);
+$container-max-width: 82rem;
+$menu-max-width: 25rem;
+
+/*********************
+BREAKPOINTS
+*********************/
+
+$breakpoints: (xs: 24rem,
+  sm: 32rem,
+  md: 54rem,
+  lg: 64rem,
+  xl: 80rem);
+
+// mobile-first breakpoint mixin
+@mixin breakpoint($breakpoint: md, $key: min, $orientation: false) {
+  @if ($orientation) {
+    @media (#{$key}-width: map-get($breakpoints, $breakpoint)) and (orientation : $orientation) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (#{$key}-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}

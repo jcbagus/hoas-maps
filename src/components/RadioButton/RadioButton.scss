@@ -1,0 +1,84 @@
+@import '../../scss/variables';
+
+
+.radio-button {
+  $background-color-checked: #fff;
+  $background-color-unchecked: #fff;
+  $background-color-disabled: #ccc;
+  $border-color-checked: $color-primary;
+  $border-color-unchecked: #aaa;
+  $border-color-disabled: #ccc;
+  $text-color-disabled: #aaa;
+  $circle-color: $color-primary;
+  $circle-color-disabled: #aaa;
+
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  &__input {
+    position: relative;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: $background-color-unchecked;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.15rem solid $border-color-unchecked;
+    border-radius: 100%;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+
+    &::before {
+      content: "";
+      opacity: 0;
+      transform: scale(0);
+      width: .75rem;
+      height: .75rem;
+      border-radius: 100%;
+      transition: 120ms opacity ease-in-out;
+      background-color: $circle-color;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    &:checked {
+      background-color: $background-color-checked;
+      border-color: $border-color-checked;
+
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &:disabled {
+      background-color: $background-color-disabled;
+      border-color: $border-color-disabled;
+      cursor: not-allowed;
+      & + .radio-button__label {
+        color: $text-color-disabled;
+        cursor: not-allowed;
+      }
+
+      &:before {
+        background-color: $circle-color-disabled;
+      }
+    }
+  }
+
+  &__label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 1rem;
+    align-self: center;
+  }
+}

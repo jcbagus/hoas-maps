@@ -1,0 +1,55 @@
+@import '../../scss/variables';
+
+.mapstyle-select {
+  position: fixed;
+  bottom: 12rem;
+  right: 1rem;
+  display: flex;
+  align-items: baseline;
+
+  &__list {
+    margin: 0;
+    padding: 1rem 3rem 1rem 1rem;
+    list-style: none;
+    box-shadow: $box-shadow-on-map;
+    display: none;
+    transform: translate(3.25rem, 0.25rem);
+    border: 1px solid #c7c7c7;
+    border-radius: 3px;
+
+    &--open {
+      display: flex;
+    }
+  }
+
+  &__toggle-btn {
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    font-size: 0.8rem;
+    line-height: 1;
+    z-index: 2;
+    position: relative;
+
+    svg {
+      width: 1.5rem;
+    }
+
+    &--close {
+      box-shadow: none;
+      svg {
+        width: 1rem;
+        color: #000;
+        height: 1rem;
+      }
+    }
+  }
+
+  &__item {
+    margin-right: 1rem;
+  }
+}

@@ -1,0 +1,51 @@
+.toggle-button {
+  $background-color-checked: #5865F6;
+  $background-color-unchecked: #C7C7C7;
+  $background-color-disabled: #ccc;
+  $border-color-checked: #fff;
+  $border-color-unchecked: #fff;
+  $border-color-disabled: #ccc;
+  $thumb-color: #fff;
+  $button-height: 1.66rem;
+  $button-width: 2.5rem;
+  $thumb-height: 1.2rem;
+
+  &__button {
+    background: $background-color-unchecked;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: content-box;
+    height: $button-height;
+    width: $button-width;
+    position: relative;
+    padding: 0 .25rem;
+    margin: 0;
+    transition: all 0.2s;
+    outline: none;
+    appearance: none;
+
+    &[data-checked="true"] {
+      background: $background-color-checked;
+    }
+  }
+
+  &__thumb {
+    display: block;
+    background: $thumb-color;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    border-radius: 100%;
+    width: $thumb-height;
+    height: $thumb-height;
+
+    &[data-checked="true"] {
+      transform: translateX(calc(#{$button-width} - #{$thumb-height}));
+    }
+  }
+}

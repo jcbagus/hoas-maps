@@ -1,0 +1,76 @@
+@import './scss/fonts';
+@import './scss/variables';
+@import './scss/spacing';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.41px;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.dropdown-arrow {
+
+  &--open {
+    transform: rotate(-180deg);
+  }
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-flex;
+}
+
+.toast {
+  background: #fff;
+  color: #424242;
+  border-radius: 0;
+  padding: 1rem 2rem;
+}
+
+.d-flex {
+  display: flex;
+
+  &.justify-content-between {
+    justify-content: space-between;
+  }
+}
+
+@keyframes button-loader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

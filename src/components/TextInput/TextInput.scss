@@ -1,0 +1,66 @@
+@import '../../scss/variables';
+
+
+.text-input {
+  $input-height: 3.5rem;
+  $background-color: #fff;
+  $background-color-disabled: #f1f1f1;
+  $border-color: #c7c7c7;
+  $border-color-disabled: #ccc;
+  $label-color: $color-text;
+  $input-text-color: #464646;
+  $input-text-color-disabled: #aaa;
+  $helper-text-color: #aaa;
+  $focus-box-shadow: rgba(7, 133, 113, 0.2);
+  $outline-color: $color-green;
+
+
+  &__label {
+    color: $label-color;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    position: relative;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: $input-text-color;
+    font-size: 1em;
+    height: $input-height;
+    line-height: normal;
+    padding: 0 .5em;
+    width: 100%;
+    will-change: outline, box-shadow;
+    transition: box-shadow 0.1s linear, outline 0.1s linear;
+    outline-color: $outline-color;
+
+    &:focus {
+      outline: 1px solid $outline-color;
+      box-shadow: 0 5px 15px 1px $focus-box-shadow;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $background-color-disabled;
+    }
+  }
+
+  &__helptext {
+    color: $helper-text-color;
+    display: block;
+    line-height: 1;
+    font-size: 0.9rem;
+    margin-top: .2rem;
+    white-space: pre-line;
+  }
+}
